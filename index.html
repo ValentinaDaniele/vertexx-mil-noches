@@ -167,28 +167,31 @@
   }
   .card:hover{border-color:var(--gold-soft); transform:translateY(-2px);}
 
-  .card-body{
-    display:flex;
-    flex-direction:column;
-    padding:18px 20px 20px;
-    flex:1;
-  }
-
-  .img-banner{
+  .img-frame{
     width:100%;
-    height:230px;
+    aspect-ratio:1/1;
     flex-shrink:0;
     background:var(--surface-2);
     display:flex;align-items:center;justify-content:center;
     overflow:hidden;
     border-bottom:1px solid var(--line);
   }
-  .img-banner img{width:100%;height:100%;object-fit:cover;}
+  .img-frame img{width:100%;height:100%;object-fit:cover;}
   .img-placeholder{
     font-family:'Marcellus',serif;
     color:var(--gold-soft);
-    font-size:26px;
+    font-size:30px;
     letter-spacing:0.05em;
+    text-align:center;
+    padding:0 8px;
+  }
+
+  .card-body{
+    display:flex;
+    flex-direction:column;
+    padding:18px 20px 20px;
+    flex:1;
+    min-width:0;
   }
 
   .name-row{
@@ -538,7 +541,7 @@ function cardHTML(p){
   const hasDecant = decantDisponible(p.decant);
   return `
   <div class="card" data-name="${p.name.toLowerCase()}" data-dupe="${(p.dupe||'').toLowerCase()}" data-notes="${(p.family||'').toLowerCase()}" data-season="${p.season}" data-moment="${p.moment}" data-gender="${p.gender}">
-    <div class="img-banner">${img}</div>
+    <div class="img-frame">${img}</div>
     <div class="card-body">
       <div class="name-row">
         <div class="p-name">${p.name}</div>
