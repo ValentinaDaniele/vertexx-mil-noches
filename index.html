@@ -102,17 +102,25 @@
     background:linear-gradient(90deg,transparent,var(--gold),transparent);
   }
 
+.top-safety{
+  position:fixed;
+  top:0; left:0; right:0;
+  height:50px;
+  background:linear-gradient(to bottom, var(--bg) 55%, transparent 100%);
+  z-index:19;
+  pointer-events:none;
+}
   /* CONTROLS */
-  .controls{
-    position:sticky; top:0; z-index:20;
-    background:var(--bg);
-    -webkit-backdrop-filter:blur(8px);
-    backdrop-filter:blur(8px);
-    padding:16px 0;
-    border-bottom:1px solid var(--line);
-    margin-bottom:36px;
-    display:flex; gap:12px; flex-wrap:wrap; align-items:center;
-  }
+.controls{
+  position:sticky; top:0; z-index:20;
+  background:var(--bg);
+  padding:16px 0;
+  border-bottom:1px solid var(--line);
+  margin-bottom:36px;
+  display:flex; gap:12px; flex-wrap:wrap; align-items:center;
+  transform:translateZ(0);
+  will-change:transform;
+}
   .search-box{
     flex:1 1 220px;
     display:flex; align-items:center;
@@ -335,6 +343,7 @@
 </style>
 </head>
 <body>
+<div class="top-safety" aria-hidden="true"></div>
 <div class="wrap">
   <header class="hero">
     <div class="logo-frame">
